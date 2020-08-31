@@ -1,24 +1,21 @@
 import React from "react";
-import user from "../json/user.json";
+
 import Profile from "./Profile/Profile";
-import statistics from "../json/statistics.json";
 import Statistics from "./Statistics/Statistics";
-import friends from "../json/friends.json";
 import FriendsList from "./FriendsList/FriendsList";
-import transactions from "../json/transactions.json";
 import TransactionHistory from "./TransactionHistory/TransactionHistory";
+
+import user from "../json/user.json";
+import statistics from "../json/statistics.json";
+import friends from "../json/friends.json";
+import transactions from "../json/transactions.json";
+
 import "./App.css";
 
 export default function App() {
   return (
     <>
-      <Profile
-        name={user.name}
-        tag={user.tag}
-        location={user.location}
-        avatar={user.avatar}
-        stats={user.stats}
-      />
+      <Profile {...user} />
 
       <Statistics title="Upload stats" stats={statistics} />
 
