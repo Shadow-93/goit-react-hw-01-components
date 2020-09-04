@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import styles from "./TransactionHistory.module.css";
 
-function TransactionHistory({ items }) {
+const TransactionHistory = ({ items }) => {
   return (
     <table className={styles.transactionHistory}>
       <thead>
@@ -25,7 +25,7 @@ function TransactionHistory({ items }) {
       </tbody>
     </table>
   );
-}
+};
 
 TransactionHistory.propTypes = {
   items: PropTypes.arrayOf(

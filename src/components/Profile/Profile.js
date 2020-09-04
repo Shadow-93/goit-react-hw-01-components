@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 
 import s from "./Profile.module.css";
 
-function Profile({ name, tag, location, avatar, stats }) {
+const Profile = ({ name, tag, location, avatar, stats }) => {
   const { followers, views, likes } = stats;
 
   return (
@@ -30,7 +30,7 @@ function Profile({ name, tag, location, avatar, stats }) {
       </ul>
     </div>
   );
-}
+};
 
 Profile.propTypes = {
   avatar: PropTypes.string,
