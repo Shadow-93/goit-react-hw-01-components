@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import StatListItem from "./StatListItem";
+import StatListItem from "./StatListItem/StatListItem";
 
 import s from "./Statistics.module.css";
 
@@ -11,8 +11,10 @@ const Statistics = ({ title, stats }) => {
       {title && <h2 className={s.title}>{title}</h2>}
 
       <ul className={s.statList}>
-        {stats.map(({ id, ...props }) => {
-          return <StatListItem key={id} {...props} />;
+        {stats.map(({ id, label, percentage }) => {
+          return (
+            <StatListItem key={id} label={label} percentage={percentage} />
+          );
         })}
       </ul>
     </section>
@@ -26,12 +28,10 @@ Statistics.defaultProps = {
 Statistics.propTypes = {
   title: PropTypes.string,
   stats: PropTypes.arrayOf(
-    PropTypes.exact({
+    PropTypes.shape({
       id: PropTypes.string.isRequired,
-      label: PropTypes.string.isRequired,
-      percentage: PropTypes.number.isRequired,
     })
-  ),
+  ).isRequired,
 };
 
 export default Statistics;

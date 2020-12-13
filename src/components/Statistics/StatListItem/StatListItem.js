@@ -1,6 +1,7 @@
 import React from "react";
+import PropTypes from "prop-types";
 
-import s from "./Statistics.module.css";
+import s from "../Statistics.module.css";
 
 const randomBgColor = () => {
   const r = Math.floor(Math.random() * 256);
@@ -16,6 +17,11 @@ const StatListItem = ({ label, percentage }) => {
       <span className={s.percentage}>{percentage}</span>
     </li>
   );
+};
+
+StatListItem.propTypes = {
+  label: PropTypes.string.isRequired,
+  percentage: PropTypes.number.isRequired,
 };
 
 export default StatListItem;
